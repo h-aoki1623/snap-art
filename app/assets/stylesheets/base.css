@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/********************************/
+
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+	width: 100%;
+	/*スマホ用*/
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+@media screen and (max-width: 479px){
+	html {
+		overflow-x: hidden;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+body {
+	font-family: soleil,sans-serif;
+	font-weight:normal;
+	color:#1c1a19;
+	text-align:center;
+}
+@media screen and (max-width: 479px){
+	body {
+		overflow: hidden;
+	}
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: 700;
+}
+h2 {
+	font-size: 30px;
+	font-weight: 600;
+}
+h3 {
+	font-size: 24px;
+	font-weight: 400;
+}
+@media screen and (max-width: 479px){
+	h1 {
+		font-size: 20px;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: 16px;
+		font-weight: 600;
+	}
+	h3 {
+		font-size: 14px;
+		font-weight: 400;
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+strong, th, p {
+	font-size:14px;
+	font-weight:normal;
+}
+@media screen and (max-width:479px){
+	strong, th, p {
+		font-size:12px;
+	}
+}
+
+ul, ol {
+	list-style:none;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+img, a {
+	border:0;
+	text-decoration:none;
+}
+
+a {
+	outline: 0;
+	color:#1c1a19;
+	cursor:pointer;
+}
+a:hover {
+	text-decoration:none;
+	opacity: 0.8;
+}
+
+input, select, button {
+	background-color: #FFFFFF;
+	outline: 0;
+	border: 1px solid #DDDDDD;
+	border-radius: 2px;
+	display: inline-block;
+	vertical-align: middle;
+	font-family: inherit;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 479px) {
+	input[type=email], select {
+		-webkit-appearance: none;
+	}
+}
+
+input[type=email] {
+	padding: 10px;
+	height: 18px;
+	width: calc(100% - 20px);
+}
+select {
+	height: 40px;
+	width: 100%;
+}
+label {
+	font-size: 14px;
+}

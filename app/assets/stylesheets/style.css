@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/********************************/
+
+#filteredImg {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.actionField {
+  margin: 20px auto;
+}
+
+#dropArea {
+  overflow: hidden;
+  width: 300px;
+  padding: 30px 0;
+  background: #ddd;
+  border: 3px #666 dashed;
+  color: #999;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+#dropArea.dragover,
+#dropArea:active {
+  background: #cfc;
+  border-color: #9c9;
+  color: #9c9;
+}
+
+#fileInput {
+  display: none;
+}
+
+#output img {
+  display: block;
+  margin: 15px auto;
+}
+
+#imageCanvas {
+  width: 300px;
+  height: 300px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#cropper_image {
+  width: 825px;
+  height: 497px;
+}
+
+.token_list .token {
+  margin: 10px 30px;
+}
+
+.token {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button {
+  display: block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #15e2e2;
+  font-weight: 700;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.disabled {
+  background-color: #bbbbbb;
+  cursor: default;
+}
+
+.disabled:hover {
+  opacity: 1;
+}
+
+.flex{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+}
