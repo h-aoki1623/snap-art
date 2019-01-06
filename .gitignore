@@ -51,4 +51,3 @@ doc/
 .project
 .idea
 .secret
-/config/puma.rb
