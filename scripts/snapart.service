@@ -1,8 +1,14 @@
 [Unit]
-Description=SnapArt service for webapp
+Description=uWSGI service for webapp
  
 [Service]
-ExecStart=/bin/bash -c 'rails s -e development'
+Type=simple
+User=webmaster
+WorkingDirectory=/var/www/webapp/snap-art
+Environment="PATH=/home/webmaster/.rbenv/shims:/home/webmaster/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+ExecStart=/bin/bash -lc "rails s -e development"
+TimeoutSec=300
+Restart=always
  
 [Install]
 WantedBy=multi-user.target
