@@ -128,6 +128,7 @@
     const xhr = new XMLHttpRequest();
     const formData = new FormData();
     formData.append('image', file);
+    console.log('file size: ' + file.size);
     console.log(url);
     xhr.onreadystatechange = function(){
       switch ( xhr.readyState ) {

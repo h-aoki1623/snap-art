@@ -2,7 +2,7 @@ class CtrlController < ApplicationController
   def upload_zombie
     id = params[:id]
     strId = id.to_s
-    siteURI = "http://localhost:3000/"
+    siteURI = "http://snapart.io/"
     image = params[:image]
     imageName = strId + ".jpg"
     jsonName = strId + ".json"
