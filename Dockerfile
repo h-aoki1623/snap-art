@@ -18,7 +18,10 @@ RUN apt -y install \
     build-essential \
     libreadline-dev \
     zlib1g-dev \
-    libssl-dev
+    libssl-dev \
+    sudo \
+    vim \
+    systemd
 RUN apt -y install \
     sqlite3 \
     libsqlite3-dev \

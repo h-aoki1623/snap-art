@@ -1,0 +1,8 @@
+[Unit]
+Description=SnapArt service for webapp
+ 
+[Service]
+ExecStart=/bin/bash -c 'rails s -e development'
+ 
+[Install]
+WantedBy=multi-user.target
