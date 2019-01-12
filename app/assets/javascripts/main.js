@@ -1,4 +1,4 @@
-;(function() {
+;$(function() {
   var contract;
   var userAccount;
   var balance = 0;
