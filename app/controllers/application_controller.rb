@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
     def http_header_log
+      logger.warn "log test"
       logger.info("api_version:#{request.headers[:HTTP_API_VERSION]}")
     end
 end
