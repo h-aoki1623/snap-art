@@ -16,7 +16,7 @@ module SnapArt
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.action_dispatch.default_headers = {
-      #'Access-Control-Allow-Credentials' => 'true',
+      'Access-Control-Allow-Credentials' => 'true',
       'Access-Control-Allow-Origin' => '*',
       'Access-Control-Request-Method' => '*'
     }
