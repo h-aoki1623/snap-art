@@ -259,15 +259,16 @@
       }
     });*/
 
-
+/*
     $.ajaxSetup({
       beforeSend: function(xhr) {
         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
       }
-    });
+    });*/
 
     $.ajax({
       url  : url,
+      headers: {'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')},
       type : "POST",
       data : json,
       contentType: 'application/json'
