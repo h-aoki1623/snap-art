@@ -251,10 +251,10 @@
     //console.log(json);
     const url = SNAPART_URL + "top/update_token_list"
 
-    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
       const token = $("#authenticity_token").val()
       if (token) {
-        return jqXHR.setRequestHeader('X-CSRF-Token', token);
+        return xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
       }
     });
 
