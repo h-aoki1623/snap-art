@@ -239,12 +239,25 @@
       const id = tokenIds[i];
       const tokenUri = await tokenURI(id);
       const imageUri = await imageURI(tokenUri);
-      data.push({id:id, tokenURI:tokenUri, imageURI:imageUri});
+      data.push({
+        id:id,
+        tokenURI:tokenUri,
+        imageURI:imageUri,
+        authenticity_token:$("#authenticity_token").val()
+      });
     }
     const dataSet = {tokens:data};
     const json = JSON.stringify(dataSet);
     //console.log(json);
     const url = SNAPART_URL + "top/update_token_list"
+
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+      const token = $("#authenticity_token").val()
+      if (token) {
+        return jqXHR.setRequestHeader('X-CSRF-Token', token);
+      }
+    });
+
     $.ajax({
       url  : url,
       type : "POST",
