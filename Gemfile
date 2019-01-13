@@ -63,4 +63,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'touchpunch-rails'
