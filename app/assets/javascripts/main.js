@@ -312,7 +312,7 @@
         alert("imageURI data.image: " + data.image);
         resolve(data.image);
       }).fail(function(error) {
-        alert("imageURI ajax ERROR");
+        alert("imageURI ajax ERROR: " + error);
         console.log('ERROR!');
         reject(error);
       });
