@@ -297,6 +297,7 @@
   }
 
   function imageURI(tokenURI) {
+    alert("Excecute function imageURI");
     const url = tokenURI;
     alert("tokenURI: " + url);
     return new Promise(function(resolve, reject) {
@@ -308,8 +309,10 @@
       }).done(function(data) {
         console.log('SUCCESS!');
         console.log(data.image);
+        alert("imageURI data.image: " + data.image);
         resolve(data.image);
       }).fail(function(error) {
+        alert("imageURI ajax ERROR");
         console.log('ERROR!');
         reject(error);
       });
