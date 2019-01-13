@@ -237,6 +237,7 @@
     var data = [];
     alert("Token IDs num: " + tokenIds.length);
     for (var i in tokenIds) {
+      alert("tokenId: " + i);
       const id = tokenIds[i];
       const tokenUri = await tokenURI(id);
       const imageUri = await imageURI(tokenUri);
