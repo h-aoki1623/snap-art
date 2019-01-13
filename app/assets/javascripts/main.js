@@ -298,6 +298,7 @@
 
   function imageURI(tokenURI) {
     const url = tokenURI;
+    alert("tokenURI: " + url);
     return new Promise(function(resolve, reject) {
       $.ajax({
         url  : url,
@@ -378,9 +379,11 @@
   }
 
   function tokenURI(tokenId) {
+    alert("Execute function tokenURI");
     return new Promise(function(resolve, reject) {
       contract.tokenURI(tokenId, function(error, result){
          if(!error) {
+           alert("tokenURI result: " + result);
            resolve(result);
          } else {
            reject(error);
