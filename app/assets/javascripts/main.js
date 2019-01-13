@@ -234,8 +234,8 @@
 
   async function updateTokenList() {
     const tokenIds = await ownedTokens(userAccount);
-    alert("Token IDs length: " + tokenIds.length);
     var data = [];
+    alert("Token IDs num: " + tokenIds.length);
     for (var i in tokenIds) {
       const id = tokenIds[i];
       const tokenUri = await tokenURI(id);
