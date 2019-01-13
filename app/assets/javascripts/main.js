@@ -100,6 +100,7 @@
   });
 
   $("#dropArea").on("click", function(){
+    alert("Address detected");
     fileInput.click();
   });
 
@@ -225,6 +226,7 @@
         var newBalance = parseInt(await balanceOf(userAccount));
         if (isAccountUpdated || balance != newBalance) {
           balance = newBalance;
+          alert("Address detected");
           updateTokenList();
         }
       }
