@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery-ui
-//= require jquery.ui.touch-punch
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
