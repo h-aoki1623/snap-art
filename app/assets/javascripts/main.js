@@ -100,7 +100,6 @@
   });
 
   $("#dropArea").on("click", function(){
-    alert("Address detected");
     fileInput.click();
   });
 
@@ -226,7 +225,6 @@
         var newBalance = parseInt(await balanceOf(userAccount));
         if (isAccountUpdated || balance != newBalance) {
           balance = newBalance;
-          alert("Address detected");
           updateTokenList();
         }
       }
@@ -236,11 +234,14 @@
 
   async function updateTokenList() {
     const tokenIds = await ownedTokens(userAccount);
+    alert("Token IDs length: " + tokenIds.length);
     var data = [];
     for (var i in tokenIds) {
       const id = tokenIds[i];
       const tokenUri = await tokenURI(id);
       const imageUri = await imageURI(tokenUri);
+      alert("tokenUri: " + tokenUri);
+      alert("imageUri: " + imageUri);
       data.push({
         id:id,
         tokenURI:tokenUri,
@@ -250,6 +251,7 @@
     }
     const dataSet = {tokens:data};
     const json = JSON.stringify(dataSet);
+    alert("json: " + json);
     //console.log(json);
     const url = SNAPART_URL + "top/update_token_list"
 
