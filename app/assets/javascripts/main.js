@@ -483,7 +483,8 @@
   var pointers = {};
   var pointerDiffs = {};
 
-  $('#imageCanvas').on('touchstart', function(e) {
+  canvas.addEventListener('touchstart', function(e) {
+  //$('#imageCanvas').on('touchstart', function(e) {
     e.preventDefault();
     console.log("touchstart");
     canvasImgStartWidth = canvasImg.width;
@@ -498,12 +499,13 @@
     }
   });
 
-  $('#imageCanvas').on('touchmove', function(e) {
+  canvas.addEventListener('touchmove', function(e) {
+  //$('#imageCanvas').on('touchmove', function(e) {
     e.preventDefault();
-    const oe = e.originalEvent;
-    if (oe.changedTouches) {
-      Object.keys(oe.changedTouches).forEach(function (key) {
-        const touch = oe.changedTouches[key];
+    //const oe = e.originalEvent;
+    if (e.changedTouches) {
+      Object.keys(e.changedTouches).forEach(function (key) {
+        const touch = e.changedTouches[key];
         const id = touch.identifier;
         pointerDiffs[id] = getPointerDiff(touch, pointers[id]);
         Object.assign(pointers[id] || {}, getPointer(touch, true));
@@ -515,7 +517,7 @@
       const ratio = 1;
       const delta = maxRatio > 0 ? 1 : -1;
       //zoom(delta * ratio, oe, true);
-      zoom(maxRatio * ratio, oe, true);
+      zoom(maxRatio * ratio, e, true);
     }
 
     if (Object.keys(pointers).length == 1) {
@@ -535,7 +537,8 @@
     }
   });
 
-  $('#imageCanvas').on('touchend', function(e) {
+  canvas.addEventListener('touchend', function(e) {
+  //$('#imageCanvas').on('touchend', function(e) {
     if (e.changedTouches) {
       Object.keys(e.changedTouches).forEach(function (key) {
         const touch = e.changedTouches[key];
