@@ -3,11 +3,11 @@ class CtrlController < ApplicationController
     id = params[:id]
     strId = id.to_s
     #siteURI = "http://snapart.io/"
-    siteURI = "http://192.168.1.6:8888/"
+    #siteURI = "http://192.168.1.6:8888/"
     image = params[:image]
     imageName = strId + ".jpg"
     jsonName = strId + ".json"
-    imageURI = siteURI + "images/token/#{imageName}"
+    imageURI = Settings.mysite['url'] + "images/token/#{imageName}"
     #jsonURI = siteURL + "public/metadata/#{jsonName}"
     #imageName = params[:fileName]
     #perms = ['.jpg', '.jpeg', '.gif', '.png']
