@@ -38,8 +38,8 @@ vendor/bundle
 /public/assets
 .byebug_history
 
-# Ignore scripts
 /scripts/
+/nohup.out
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
