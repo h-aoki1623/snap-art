@@ -1,0 +1,335 @@
+A server is already running. Check /var/www/webapp/snap-art/tmp/pids/server.pid.
+=> Booting Puma
+=> Rails 5.2.2 application starting in development 
+=> Run `rails server -h` for more startup options
+Exiting
+=> Booting Puma
+=> Rails 5.2.2 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.12.0 (ruby 2.6.0-p0), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 127.0.0.1 at 2019-01-20 06:51:41 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 4484ms (Views: 4478.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ctrl/upload_zombie" for 127.0.0.1 at 2019-01-20 06:52:10 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#upload_zombie as HTML
+  Parameters: {"id"=>"3", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f07652ded30 @tempfile=#<Tempfile:/tmp/RackMultipart20190120-287-og25ul>, @original_filename="blob", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"blob\"\r\nContent-Type: image/jpeg\r\n">}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+upload zombie log
+Current Directory: /var/www/webapp/snap-art
+Rails Directory: /var/www/webapp/snap-art
+.DS_Store
+app
+.ruby-version
+test
+bin
+config
+Dockerfile
+config.ru
+storage
+README.md
+Rakefile
+public
+.gitignore
+package.json
+scripts
+lib
+db
+Gemfile
+log
+Gemfile.lock
+.git
+tmp
+vendor
+nohup.out
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 06:55:22 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 576ms (Views: 575.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:09:07 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 577ms (Views: 576.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:20:03 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 725ms (Views: 724.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:20:05 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[], "top"=>{"tokens"=>[]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [0 times] (0.0ms)
+Completed 200 OK in 137ms (Views: 136.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ctrl/upload_zombie" for 127.0.0.1 at 2019-01-20 07:20:13 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#upload_zombie as HTML
+  Parameters: {"id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f075c1a8a28 @tempfile=#<Tempfile:/tmp/RackMultipart20190120-287-18ercti>, @original_filename="blob", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"blob\"\r\nContent-Type: image/jpeg\r\n">}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+upload zombie log
+Current Directory: /var/www/webapp/snap-art
+Rails Directory: /var/www/webapp/snap-art
+.DS_Store
+app
+.ruby-version
+test
+bin
+config
+Dockerfile
+config.ru
+storage
+README.md
+Rakefile
+public
+.gitignore
+package.json
+scripts
+lib
+db
+Gemfile
+log
+Gemfile.lock
+.git
+tmp
+vendor
+nohup.out
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:20:14 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as HTML
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.2ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:20:17 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}], "top"=>{"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [1 times] (0.4ms)
+Completed 200 OK in 179ms (Views: 177.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:21:38 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 486ms (Views: 486.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:21:41 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[], "top"=>{"tokens"=>[]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [0 times] (0.0ms)
+Completed 200 OK in 129ms (Views: 127.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:25:08 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 449ms (Views: 448.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:25:09 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.3ms)
+Completed 200 OK in 209ms (Views: 207.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:25:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}], "top"=>{"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [1 times] (0.3ms)
+Completed 200 OK in 102ms (Views: 100.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:29:53 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 577ms (Views: 577.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:29:55 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.3ms)
+Completed 200 OK in 236ms (Views: 234.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:30:05 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 526ms (Views: 526.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:30:07 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.2ms)
+Completed 200 OK in 282ms (Views: 281.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 07:30:20 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 440ms (Views: 440.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:30:22 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.2ms)
+Completed 200 OK in 251ms (Views: 249.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:30:23 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}], "top"=>{"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [1 times] (0.4ms)
+Completed 200 OK in 119ms (Views: 117.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ctrl/upload_zombie" for 127.0.0.1 at 2019-01-20 07:30:59 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#upload_zombie as TEXT
+  Parameters: {"id"=>"2", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f07662b3030 @tempfile=#<Tempfile:/tmp/RackMultipart20190120-287-qibfnm>, @original_filename="blob", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"blob\"\r\nContent-Type: image/jpeg\r\n">}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+upload zombie log
+Current Directory: /var/www/webapp/snap-art
+Rails Directory: /var/www/webapp/snap-art
+.DS_Store
+app
+.ruby-version
+test
+bin
+config
+Dockerfile
+config.ru
+storage
+README.md
+Rakefile
+public
+.gitignore
+package.json
+scripts
+lib
+db
+Gemfile
+log
+Gemfile.lock
+.git
+tmp
+vendor
+nohup.out
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:31:04 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.2ms)
+Completed 200 OK in 269ms (Views: 267.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/2" for 127.0.0.1 at 2019-01-20 07:31:10 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as JSON
+  Parameters: {"id"=>"2", "ctrl"=>{}}
+  Rendering public/metadata/2.json
+  Rendered public/metadata/2.json (0.2ms)
+Completed 200 OK in 323ms (Views: 322.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:31:11 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}, {"id"=>"2", "tokenURI"=>"http://192.168.1.6:8888/metadata/2", "imageURI"=>"http://192.168.1.6:8888/images/token/2.jpg"}], "top"=>{"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}, {"id"=>"2", "tokenURI"=>"http://192.168.1.6:8888/metadata/2", "imageURI"=>"http://192.168.1.6:8888/images/token/2.jpg"}]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [2 times] (0.3ms)
+Completed 200 OK in 179ms (Views: 177.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/1" for 127.0.0.1 at 2019-01-20 07:31:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as HTML
+  Parameters: {"id"=>"1", "ctrl"=>{}}
+  Rendering public/metadata/1.json
+  Rendered public/metadata/1.json (0.2ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/metadata/2" for 127.0.0.1 at 2019-01-20 07:42:55 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CtrlController#show_metadata as HTML
+  Parameters: {"id"=>"2", "ctrl"=>{}}
+  Rendering public/metadata/2.json
+  Rendered public/metadata/2.json (0.2ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/top/update_token_list" for 127.0.0.1 at 2019-01-20 07:42:56 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#update_token_list as */*
+  Parameters: {"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}, {"id"=>"2", "tokenURI"=>"http://192.168.1.6:8888/metadata/2", "imageURI"=>"http://192.168.1.6:8888/images/token/2.jpg"}], "top"=>{"tokens"=>[{"id"=>"1", "tokenURI"=>"http://192.168.1.6:8888/metadata/1", "imageURI"=>"http://192.168.1.6:8888/images/token/1.jpg"}, {"id"=>"2", "tokenURI"=>"http://192.168.1.6:8888/metadata/2", "imageURI"=>"http://192.168.1.6:8888/images/token/2.jpg"}]}}
+HTTP Origin header (http://192:168.1.6:8888) didn't match request.base_url (http://192.168.1.6:8888)
+  Rendered collection of tokens/_token.html.erb [2 times] (0.3ms)
+Completed 200 OK in 126ms (Views: 124.4ms | ActiveRecord: 0.0ms)
+
+

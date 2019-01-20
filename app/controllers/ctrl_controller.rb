@@ -2,7 +2,8 @@ class CtrlController < ApplicationController
   def upload_zombie
     id = params[:id]
     strId = id.to_s
-    siteURI = "http://snapart.io/"
+    #siteURI = "http://snapart.io/"
+    siteURI = "http://192.168.1.6:8888/"
     image = params[:image]
     imageName = strId + ".jpg"
     jsonName = strId + ".json"
@@ -18,8 +19,17 @@ class CtrlController < ApplicationController
       result = 'ファイルサイズは1MBまでです。'
       render :xml => result
     else
-      File.open("public/images/token/#{imageName}", 'wb') do |f|
-        f.write image.read
+      logger.info "upload zombie log"
+      Dir.foreach('.') do |item|
+        next if item == '.' or item == '..'
+        logger.info "#{item}"
+      end
+      begin
+        File.open("public/images/token/#{imageName}", 'wb') do |f|
+          f.write image.read
+        end
+      rescue => e
+        logger.warn "class=[#{e.class}] message=[#{e.message}]"
       end
       token = {
         'name' => "Digital Art",

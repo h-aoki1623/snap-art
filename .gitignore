@@ -38,6 +38,9 @@ vendor/bundle
 /public/assets
 .byebug_history
 
+# Ignore scripts
+/scripts/
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 

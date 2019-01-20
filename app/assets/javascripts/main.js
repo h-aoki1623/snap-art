@@ -156,6 +156,7 @@
           } else {
             console.log('Failed. HttpStatus: ' + xhr.statusText );
             console.log(this.response)
+            //alert('Failed. HttpStatus: ' + xhr.statusText);
           }
           break;
       }
@@ -235,14 +236,11 @@
   async function updateTokenList() {
     const tokenIds = await ownedTokens(userAccount);
     var data = [];
-    alert("Token IDs num: " + tokenIds.length);
+    //alert("Token IDs num: " + tokenIds.length);
     for (var i in tokenIds) {
-      alert("tokenId: " + i);
       const id = tokenIds[i];
       const tokenUri = await tokenURI(id);
       const imageUri = await imageURI(tokenUri);
-      alert("tokenUri: " + tokenUri);
-      alert("imageUri: " + imageUri);
       data.push({
         id:id,
         tokenURI:tokenUri,
@@ -252,7 +250,7 @@
     }
     const dataSet = {tokens:data};
     const json = JSON.stringify(dataSet);
-    alert("json: " + json);
+    //alert("json: " + json);
     //console.log(json);
     const url = SNAPART_URL + "top/update_token_list"
 
@@ -297,9 +295,9 @@
   }
 
   function imageURI(tokenURI) {
-    alert("Excecute function imageURI");
+    //alert("Excecute function imageURI");
     const url = tokenURI;
-    alert("tokenURI: " + url);
+    //alert("tokenURI: " + url);
     return new Promise(function(resolve, reject) {
       $.ajax({
         url  : url,
@@ -309,10 +307,9 @@
       }).done(function(data) {
         console.log('SUCCESS!');
         console.log(data.image);
-        alert("imageURI data.image: " + data.image);
         resolve(data.image);
       }).fail(function(error) {
-        alert("imageURI ajax ERROR: " + error);
+        //alert("imageURI ajax ERROR: " + error);
         console.log('ERROR!');
         reject(error);
       });
@@ -382,11 +379,9 @@
   }
 
   function tokenURI(tokenId) {
-    alert("Execute function tokenURI");
     return new Promise(function(resolve, reject) {
       contract.tokenURI(tokenId, function(error, result){
          if(!error) {
-           alert("tokenURI result: " + result);
            resolve(result);
          } else {
            reject(error);

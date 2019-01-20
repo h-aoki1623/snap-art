@@ -9,10 +9,10 @@ SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update apt
-RUN apt update
+RUN apt-get update
 
 # Install packages
-RUN apt -y install \
+RUN apt-get -y install \
     git \
     gcc \
     build-essential \
@@ -21,14 +21,16 @@ RUN apt -y install \
     libssl-dev \
     sudo \
     vim \
-    systemd
-RUN apt -y install \
+    systemd \
+    iputils-ping \
+    net-tools
+RUN apt-get -y install \
     sqlite3 \
     libsqlite3-dev \
     nodejs \
     gem \
     nginx-full
-RUN apt -y install curl
+RUN apt-get -y install curl
 
 
 # Make application directory
