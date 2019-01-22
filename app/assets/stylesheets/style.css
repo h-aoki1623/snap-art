@@ -57,6 +57,27 @@
   height: 497px;
 }
 
+#noneFilterBtn>img,
+#comicFilterBtn>img,
+#animeFilterBtn>img {
+  width: 60px;
+  height: 60px;
+}
+
+#noneFilterBtn,
+#comicFilterBtn,
+#animeFilterBtn {
+  width: 60px;
+  height: 60px;
+}
+
+.shadow {
+  margin: 0 10px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .token_list .token {
   margin: 10px 30px;
 }
@@ -101,5 +122,9 @@
     display: -ms-flex;
     display: -o-flex;
     display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     justify-content: center;
 }

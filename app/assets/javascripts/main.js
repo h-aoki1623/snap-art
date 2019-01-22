@@ -2,6 +2,9 @@
   var contract;
   var userAccount;
   var balance = 0;
+  var uploadedFile;
+  var croppedFile;
+  var editedBlob;
   var image;
 
   function isSmartPhone() {
@@ -15,46 +18,27 @@
     }
   }
 
-  window.addEventListener('load', async () => {
-    // Modern dapp browsers...
-    if (window.ethereum) {
-      web3 = new Web3(ethereum);
-      try {
-        // Request account access if needed
-        await ethereum.enable();
-        // Acccounts now exposed
-      } catch (error) {
-        // User denied account access...
-        console.log('User denied account access...');
-      }
-    }
-    // Legacy dapp browsers...
-    else if (window.web3) {
-      web3 = new Web3(web3.currentProvider);
-    }
-    // Non-dapp browsers...
-    else {
-      console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
-    }
-    startApp();
+
+
+
+  $("#cropBtn").on("click", async () => {
+    const base64 = canvas.toDataURL('image/jpeg');
+    const blob = base64toBlob(base64);
+    croppedFile = blobToFile(blob);
+    //const url = IMFILTER_URL + 'filter/comic';
+    //const url = IMFILTER_URL + 'filter/anime';
+    $('#imageCanvas').addClass('disabled');
+    $("#tokenizeBtn").removeClass("disabled");
+    //filterImage(url, "image", croppedFile);
   });
 
-  $(document).ready(function() {
-    if(isSmartPhone()) {
-      const width = $(window).width();
-      const canvasWidth = width * 2;
-      $('#imageCanvas').attr({'width':canvasWidth, 'height':canvasWidth});
-      $('#imageCanvas').css({'width':width, 'height':width});
-    }
-  });
-
-  $("#tokenizeBtn").on("click", async function() {
+  $("#tokenizeBtn").on("click", async () => {
     if(!$("#tokenizeBtn").hasClass("disabled")) {
       try {
         var id = await mintToken(userAccount);
         var formData = new FormData();
         formData.append("id", id);
-        formData.append("image", targetImage);
+        formData.append("image", editedBlob);
         $.ajax({
           url  : SNAPART_URL + "ctrl/upload_zombie",
           type : "POST",
@@ -75,9 +59,28 @@
     }
   });
 
-  $("#viewTokens").on("click", async function() {
-    updateTokenList();
+  $("#save").on("click", async () => {
+    const base64 = canvas.toDataURL('image/png');
+    const blob = base64toBlob(base64);
+    saveBlob(blob, 'sample.png');
   });
+
+  $("#noneFilterBtn").on("click", async () => {
+    editedBlob = croppedFile;
+    displayImageOnCanvas(editedBlob);
+    showImageByFileReader(editedBlob);
+  });
+
+  $("#comicFilterBtn").on("click", async () => {
+    const url = IMFILTER_URL + 'filter/comic';
+    filterImage(url, "image", croppedFile);
+  });
+
+  $("#animeFilterBtn").on("click", async () => {
+    const url = IMFILTER_URL + 'filter/anime';
+    filterImage(url, "image", croppedFile);
+  });
+
 
   $("#dropArea").on("dragover", function(e){
     e.preventDefault();
@@ -91,12 +94,13 @@
 
   $("#dropArea").on("drop", async function(e){
     e.preventDefault();
-    const file = e.originalEvent.dataTransfer.files[0];
-    //const url = 'http://localhost:5000/filter/comic';
-    const url = IMFILTER_URL + 'filter/comic';
-    displayImageOnCanvas(file);
-    filterImage(url, "image", file);
+    uploadedFile = e.originalEvent.dataTransfer.files[0];
+    displayImageOnCanvas(uploadedFile);
+    //const url = IMFILTER_URL + 'filter/comic';
+    //filterImage(url, "image", file);
     $(this).removeClass("dragover");
+    $('#imageCanvas').removeClass('disabled');
+    $("#cropBtn").removeClass("disabled");
   });
 
   $("#dropArea").on("click", function(){
@@ -104,25 +108,13 @@
   });
 
   $("#fileInput").on("change", function(e){
-    const file = e.originalEvent.target.files[0];
-    const url = IMFILTER_URL + 'filter/comic';
-    displayImageOnCanvas(file);
-    filterImage(url, "image", file);
+    uploadedFile = e.originalEvent.target.files[0];
+    displayImageOnCanvas(uploadedFile);
+    //const url = IMFILTER_URL + 'filter/comic';
+    //filterImage(url, "image", file);
+    $('#imageCanvas').removeClass('disabled');
+    $("#cropBtn").removeClass("disabled");
   });
-
-
-/*
-  function displayImageOnCropper(blob) {
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onloadend = function() {
-      const url = window.URL || window.webkitURL;
-      const imageSrc = url.createObjectURL(blob);
-      $("#cropper_image").attr("src", imageSrc);
-      isCroppReady = true;
-      cropper.enable().replace(imageSrc);
-    }
-  }*/
 
   function filterImage(url, name, file) {
     const xhr = new XMLHttpRequest();
@@ -147,11 +139,10 @@
           break;
         case 4: // データ受信完了.
           if( xhr.status == 200 || xhr.status == 304 ) {
-            //const data = this.response;
             console.log('COMPLETE!');
-            const response = this.response
-            showImageByFileReader(response);
-            targetImage = response;
+            editedBlob = this.response
+            displayImageOnCanvas(editedBlob);
+            showImageByFileReader(editedBlob);
             $("#tokenizeBtn").removeClass("disabled");
           } else {
             console.log('Failed. HttpStatus: ' + xhr.statusText );
@@ -175,7 +166,7 @@
     reader.readAsDataURL(blob);
   }
 
-  function Base64toBlob(base64) {
+  function base64toBlob(base64) {
     // カンマで分割して以下のようにデータを分ける
     // tmp[0] : データ形式（data:image/png;base64）
     // tmp[1] : base64データ（iVBORw0k～）
@@ -192,6 +183,11 @@
     // blobデータを作成
   	var blob = new Blob([buf], { type: mime });
     return blob;
+  }
+
+  function blobToFile(blob) {
+    const file = new File([blob], "sample.jpg", {type: blob.type, lastModified: Date.now()});
+    return file;
   }
 
   function saveBlob(blob, fileName) {
@@ -211,6 +207,38 @@
     a.dispatchEvent(event);
   }
 
+  $(document).ready(function() {
+    if(isSmartPhone()) {
+      const width = $(window).width();
+      const canvasWidth = width * 2;
+      $('#imageCanvas').attr({'width':canvasWidth, 'height':canvasWidth});
+      $('#imageCanvas').css({'width':width, 'height':width});
+    }
+  });
+
+  window.addEventListener('load', async () => {
+    // Modern dapp browsers...
+    if (window.ethereum) {
+      web3 = new Web3(ethereum);
+      try {
+        // Request account access if needed
+        await ethereum.enable();
+        // Acccounts now exposed
+      } catch (error) {
+        // User denied account access...
+        console.log('User denied account access...');
+      }
+    }
+    // Legacy dapp browsers...
+    else if (window.web3) {
+      web3 = new Web3(web3.currentProvider);
+    }
+    // Non-dapp browsers...
+    else {
+      console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+    }
+    startApp();
+  });
 
   function startApp() {
     contract = web3.eth.contract(tokenABI).at(TOKEN_CONTRACT);
@@ -410,13 +438,22 @@
   var canvasImgStartX;
   var canvasImgStartY;
 
-  function displayImageOnCanvas(blob) {
+  async function displayImageOnCanvas(file) {
+    var orientation;
+
     const reader = new FileReader();
 
-    reader.readAsDataURL(blob);
+    await EXIF.getData(file, function(){
+		  orientation = file.exifdata.Orientation;
+		});
+
+    reader.readAsDataURL(file);
+
+    console.log(file);
     reader.onloadend = function() {
+      console.log("orien3: " + orientation);
       const url = window.URL || window.webkitURL;
-      canvasImg.src = url.createObjectURL(blob);
+      canvasImg.src = url.createObjectURL(file);
       canvasImg.addEventListener('load', function() {
 
         canvasImgX = 0;
@@ -442,29 +479,33 @@
   }
 
   $('#imageCanvas').on(EVENT_WHEEL, function(e) {
-    e.preventDefault();
-    var delta = 1;
-    var ratio = 0.04;
+    if(!$('#imageCanvas').hasClass('disabled')) {
+      e.preventDefault();
+      var delta = 1;
+      var ratio = 0.04;
 
-    var oe = e.originalEvent;
+      var oe = e.originalEvent;
 
-    if (oe.deltaY) {
-      delta = oe.deltaY > 0 ? 1: -1;
-    } else if (oe.wheelDelta) {
-      delta = -oe.wheelDelta  / 120;
-    } else if (oe.detail) {
-      delta = oe.detail > 0 ? 1 : -1;
+      if (oe.deltaY) {
+        delta = oe.deltaY > 0 ? 1: -1;
+      } else if (oe.wheelDelta) {
+        delta = -oe.wheelDelta  / 120;
+      } else if (oe.detail) {
+        delta = oe.detail > 0 ? 1 : -1;
+      }
+
+      zoom(-delta * ratio, oe);
     }
-
-    zoom(-delta * ratio, oe);
   });
 
   var isDragging = false;
   var mousePointer = {};
 
   $('#imageCanvas').on('mousedown', function(e) {
-    isDragging = true;
-    mousePointer = getPointer(e);
+    if(!$('#imageCanvas').hasClass('disabled')) {
+      isDragging = true;
+      mousePointer = getPointer(e);
+    }
   });
 
   $('#imageCanvas').on('mousemove', function(e) {
@@ -491,67 +532,73 @@
 
   canvas.addEventListener('touchstart', function(e) {
   //$('#imageCanvas').on('touchstart', function(e) {
-    e.preventDefault();
-    console.log("touchstart");
-    canvasImgStartWidth = canvasImg.width;
-    canvasImgStartHeight = canvasImg.height;
-    canvasImgStartX = canvasImgX;
-    canvasImgStartY = canvasImgY;
-    if (e.changedTouches) {
-      Object.keys(e.changedTouches).forEach(function (key) {
-        const touch = e.changedTouches[key];
-        pointers[touch.identifier] = getPointer(touch);
-      });
+    if(!$('#imageCanvas').hasClass('disabled')) {
+      e.preventDefault();
+      console.log("touchstart");
+      canvasImgStartWidth = canvasImg.width;
+      canvasImgStartHeight = canvasImg.height;
+      canvasImgStartX = canvasImgX;
+      canvasImgStartY = canvasImgY;
+      if (e.changedTouches) {
+        Object.keys(e.changedTouches).forEach(function (key) {
+          const touch = e.changedTouches[key];
+          pointers[touch.identifier] = getPointer(touch);
+        });
+      }
     }
   });
 
   canvas.addEventListener('touchmove', function(e) {
-  //$('#imageCanvas').on('touchmove', function(e) {
-    e.preventDefault();
-    //const oe = e.originalEvent;
-    if (e.changedTouches) {
-      Object.keys(e.changedTouches).forEach(function (key) {
-        const touch = e.changedTouches[key];
-        const id = touch.identifier;
-        pointerDiffs[id] = getPointerDiff(touch, pointers[id]);
-        Object.assign(pointers[id] || {}, getPointer(touch, true));
-      });
-    }
+    //$('#imageCanvas').on('touchmove', function(e) {
+    if(!$('#imageCanvas').hasClass('disabled')) {
+      e.preventDefault();
+      //const oe = e.originalEvent;
+      if (e.changedTouches) {
+        Object.keys(e.changedTouches).forEach(function (key) {
+          const touch = e.changedTouches[key];
+          const id = touch.identifier;
+          pointerDiffs[id] = getPointerDiff(touch, pointers[id]);
+          Object.assign(pointers[id] || {}, getPointer(touch, true));
+        });
+      }
 
-    if (Object.keys(pointers).length > 1) {
-      const maxRatio = getMaxZoomRatio(pointers);
-      const ratio = 1;
-      const delta = maxRatio > 0 ? 1 : -1;
-      //zoom(delta * ratio, oe, true);
-      zoom(maxRatio * ratio, e, true);
-    }
+      if (Object.keys(pointers).length > 1) {
+        const maxRatio = getMaxZoomRatio(pointers);
+        const ratio = 1;
+        const delta = maxRatio > 0 ? 1 : -1;
+        //zoom(delta * ratio, oe, true);
+        zoom(maxRatio * ratio, e, true);
+      }
 
-    if (Object.keys(pointers).length == 1) {
-      var diffs = {};
+      if (Object.keys(pointers).length == 1) {
+        var diffs = {};
 
-      Object.keys(e.changedTouches).forEach(function (key) {
-        const touch = e.changedTouches[key];
-        const id = touch.identifier;
-        diffs[id] = pointerDiffs[id];
-      });
+        Object.keys(e.changedTouches).forEach(function (key) {
+          const touch = e.changedTouches[key];
+          const id = touch.identifier;
+          diffs[id] = pointerDiffs[id];
+        });
 
-      const diff = getMinPoinerDiff(diffs);
-      canvasImgX += diff.x * 2;
-      canvasImgY += diff.y * 2;
-      checkOffset();
-      renderImage();
+        const diff = getMinPoinerDiff(diffs);
+        canvasImgX += diff.x * 2;
+        canvasImgY += diff.y * 2;
+        checkOffset();
+        renderImage();
+      }
     }
   });
 
   canvas.addEventListener('touchend', function(e) {
   //$('#imageCanvas').on('touchend', function(e) {
-    if (e.changedTouches) {
-      Object.keys(e.changedTouches).forEach(function (key) {
-        const touch = e.changedTouches[key];
-        delete pointers[touch.identifier];
-      });
+    if(!$('#imageCanvas').hasClass('disabled')) {
+      if (e.changedTouches) {
+        Object.keys(e.changedTouches).forEach(function (key) {
+          const touch = e.changedTouches[key];
+          delete pointers[touch.identifier];
+        });
+      }
+      e.preventDefault();
     }
-    e.preventDefault();
   });
 
   function getPointer(ref, endOnly, pointer) {

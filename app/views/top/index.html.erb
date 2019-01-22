@@ -3,9 +3,15 @@
 <!--<canvas id="imageCanvas" width="300px" height="300px"></canvas>-->
 <!--<div class="flex"><img id="cropper_image" src="http://localhost:3000/images/token/5.jpg"></div>-->
 <input id="fileInput" type="file">
-<div><img id="filteredImg" src=""></div>
+<!--<div><img id="filteredImg" src=""></div>-->
 <div class="actionField flex">
+  <a id="cropBtn" class="button disabled">Crop</a>
   <a id="tokenizeBtn" class="button disabled">Tokenize</a>
-  <a id="viewTokens" class="button">View</a>
+  <!--<a id="save" class="button">Save</a>-->
+</div>
+<div class="filterField flex">
+  <a id="noneFilterBtn" class="shadow"><%= image_tag 'filter-sample-none.jpg' %></a>
+  <a id="comicFilterBtn" class="shadow"><%= image_tag 'filter-sample-comic.png' %></a>
+  <a id="animeFilterBtn" class="shadow"><%= image_tag 'filter-sample-anime.png' %></a>
 </div>
 <div class="token_list flex"></div>
